@@ -799,3 +799,17 @@ body {
     letter-spacing: 3px;
     font-size: 0.75rem;
 }
+body {
+    background-image:
+        linear-gradient(
+            rgba(3, 19, 17, 0.20),
+            rgba(3, 19, 17, 0.20)
+        ),
+        url("images/islamic-garden.png");
+
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: #031713;
+}
