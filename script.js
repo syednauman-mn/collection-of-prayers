@@ -12,7 +12,7 @@ const time = document.getElementById("time");
 const collection = document.getElementById("collection");
 
 
-// ---------- GET OPENING ELEMENTS ----------
+// ---------- OPENING ELEMENTS ----------
 
 const envelope = document.getElementById("envelope");
 const openButton = document.getElementById("openButton");
@@ -59,7 +59,13 @@ const returnFutureCollection = document.getElementById("returnFutureCollection")
 // ---------- CHAPTER 05: PERSONAL DUA ----------
 
 const personalPage = document.getElementById("personalPage");
-const returnPersonalCollection = document.getElementById("returnPersonalCollection");
+
+
+// ---------- FINAL THOUGHT PAGE ----------
+
+const finalThoughtPage = document.getElementById("finalThoughtPage");
+const finalThoughtButton = document.getElementById("finalThoughtButton");
+const closeLetterButton = document.getElementById("closeLetterButton");
 
 
 // ==========================================
@@ -80,6 +86,7 @@ function showScreen(nextScreen) {
         top: 0,
         behavior: "smooth"
     });
+
 }
 
 
@@ -119,7 +126,6 @@ if (continueButton) {
 
 // ==========================================
 // DAYS COUNTER
-// Counts days since 22 November 2010
 // ==========================================
 
 function updateDaysCounter() {
@@ -206,19 +212,15 @@ document.querySelectorAll("[data-chapter]").forEach(card => {
 // ==========================================
 
 if (nextHeartPage) {
-
     nextHeartPage.addEventListener("click", () => {
         showScreen(heartPageTwo);
     });
-
 }
 
 if (returnCollection) {
-
     returnCollection.addEventListener("click", () => {
         showScreen(collection);
     });
-
 }
 
 
@@ -227,19 +229,15 @@ if (returnCollection) {
 // ==========================================
 
 if (nextImaanPage) {
-
     nextImaanPage.addEventListener("click", () => {
         showScreen(imaanPageTwo);
     });
-
 }
 
 if (returnImaanCollection) {
-
     returnImaanCollection.addEventListener("click", () => {
         showScreen(collection);
     });
-
 }
 
 
@@ -248,19 +246,15 @@ if (returnImaanCollection) {
 // ==========================================
 
 if (nextProtectionPage) {
-
     nextProtectionPage.addEventListener("click", () => {
         showScreen(protectionPageTwo);
     });
-
 }
 
 if (returnProtectionCollection) {
-
     returnProtectionCollection.addEventListener("click", () => {
         showScreen(collection);
     });
-
 }
 
 
@@ -269,41 +263,21 @@ if (returnProtectionCollection) {
 // ==========================================
 
 if (nextFuturePage) {
-
     nextFuturePage.addEventListener("click", () => {
         showScreen(futurePageTwo);
     });
-
 }
 
 if (returnFutureCollection) {
-
     returnFutureCollection.addEventListener("click", () => {
         showScreen(collection);
     });
-
 }
 
 
 // ==========================================
-// CHAPTER 05: PERSONAL DUA NAVIGATION
+// CHAPTER 05 → FINAL THOUGHT
 // ==========================================
-
-if (returnPersonalCollection) {
-
-    returnPersonalCollection.addEventListener("click", () => {
-        showScreen(collection);
-    });
-
-}
-// FINAL THOUGHT PAGE NAVIGATION
-
-const finalThoughtPage = document.getElementById("finalThoughtPage");
-
-const finalThoughtButton = document.getElementById("finalThoughtButton");
-
-const closeLetterButton = document.getElementById("closeLetterButton");
-
 
 if (finalThoughtButton) {
 
@@ -313,6 +287,10 @@ if (finalThoughtButton) {
 
 }
 
+
+// ==========================================
+// FINAL THOUGHT → ORIGINAL OPENING
+// ==========================================
 
 if (closeLetterButton) {
 
