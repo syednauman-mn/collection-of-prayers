@@ -799,17 +799,130 @@ body {
     letter-spacing: 3px;
     font-size: 0.75rem;
 }
-body {
-    background-image:
-        linear-gradient(
-            rgba(3, 19, 17, 0.20),
-            rgba(3, 19, 17, 0.20)
-        ),
-        url("images/islamic-garden.png");
 
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
+
+/* =========================================
+   CSS-ONLY ISLAMIC GARDEN BACKGROUND
+   No image file is required.
+========================================= */
+
+body {
+    position: relative;
+    isolation: isolate;
+    background:
+        radial-gradient(ellipse at 50% 7%, rgba(190, 166, 105, 0.16), transparent 28%),
+        radial-gradient(ellipse at 8% 45%, rgba(46, 111, 88, 0.24), transparent 38%),
+        radial-gradient(ellipse at 92% 48%, rgba(39, 91, 91, 0.22), transparent 38%),
+        radial-gradient(ellipse at 50% 100%, rgba(13, 53, 43, 0.58), transparent 55%),
+        linear-gradient(145deg, #041512 0%, #0b2923 48%, #06191b 100%);
     background-attachment: fixed;
-    background-color: #031713;
+}
+
+/* Delicate geometric light pattern and distant arch silhouettes */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.42;
+    background:
+        radial-gradient(ellipse 34% 58% at 50% 108%,
+            transparent 68%,
+            rgba(190, 164, 112, 0.12) 68.3%,
+            transparent 69.1%),
+        radial-gradient(ellipse 23% 45% at 50% 108%,
+            transparent 68%,
+            rgba(190, 164, 112, 0.10) 68.4%,
+            transparent 69.2%),
+        radial-gradient(ellipse 15% 31% at 50% 108%,
+            transparent 68%,
+            rgba(190, 164, 112, 0.08) 68.5%,
+            transparent 69.3%),
+        radial-gradient(circle at 12% 20%, rgba(222, 187, 112, 0.12) 0 1px, transparent 2px),
+        radial-gradient(circle at 88% 25%, rgba(222, 187, 112, 0.11) 0 1px, transparent 2px),
+        radial-gradient(circle at 22% 72%, rgba(222, 187, 112, 0.10) 0 1px, transparent 2px),
+        radial-gradient(circle at 79% 68%, rgba(222, 187, 112, 0.10) 0 1px, transparent 2px);
+}
+
+/* Soft moonlit glow, with subtle hanging-lantern silhouettes */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.8;
+    background:
+        /* left lantern glow */
+        radial-gradient(ellipse 90px 120px at 10% 17%, rgba(210, 167, 91, 0.12), transparent 72%),
+        /* right lantern glow */
+        radial-gradient(ellipse 90px 120px at 90% 17%, rgba(210, 167, 91, 0.12), transparent 72%),
+        /* crescent-like moonlight */
+        radial-gradient(circle at 82% 13%, rgba(221, 199, 145, 0.16) 0 25px, transparent 26px),
+        radial-gradient(circle at 87% 10%, #09231f 0 23px, transparent 24px);
+}
+
+/* Keep the original mist and glow softly behind all website content */
+.ambient-glow,
+.mist {
+    z-index: 0;
+}
+
+/* Add fine gold outlines at the page edges without covering text */
+.website::before,
+.website::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: min(13vw, 150px);
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.28;
+    background:
+        repeating-linear-gradient(
+            135deg,
+            transparent 0 22px,
+            rgba(190, 164, 112, 0.10) 23px,
+            transparent 24px 44px
+        );
+    mask-image: linear-gradient(to bottom, transparent, black 16%, black 84%, transparent);
+}
+
+.website::before {
+    left: 0;
+    border-right: 1px solid rgba(190, 164, 112, 0.13);
+}
+
+.website::after {
+    right: 0;
+    border-left: 1px solid rgba(190, 164, 112, 0.13);
+}
+
+/* Preserve the transparent screens and content panels */
+.screen,
+.content,
+.dua-content {
+    background: transparent;
+}
+
+@media (max-width: 768px) {
+    body {
+        background-attachment: scroll;
+    }
+
+    body::before {
+        opacity: 0.28;
+    }
+
+    body::after {
+        opacity: 0.55;
+    }
+
+    .website::before,
+    .website::after {
+        width: 22px;
+        opacity: 0.16;
+    }
 }
