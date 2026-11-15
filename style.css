@@ -1,0 +1,928 @@
+
+/* =========================================
+   A COLLECTION OF PRAYERS
+   COMPLETE WEBSITE STYLES
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --cream: #eee6d5;
+    --soft-cream: #d9d0bd;
+    --gold: #b9a47d;
+    --muted-gold: #8e8064;
+    --deep-green: #071b19;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    color: var(--cream);
+    font-family: "DM Sans", sans-serif;
+
+    background:
+        radial-gradient(ellipse at 50% 10%, rgba(81, 119, 102, 0.25), transparent 45%),
+        radial-gradient(ellipse at 10% 80%, rgba(33, 85, 75, 0.30), transparent 40%),
+        radial-gradient(ellipse at 90% 70%, rgba(41, 76, 83, 0.25), transparent 42%),
+        linear-gradient(145deg, #061513, #102c27 48%, #081a20);
+
+    background-attachment: fixed;
+}
+
+/* =========================================
+   AMBIENT LIGHT AND MIST
+========================================= */
+
+.ambient-glow {
+    position: fixed;
+    width: 450px;
+    height: 450px;
+    top: -180px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(190, 174, 128, 0.09);
+    filter: blur(100px);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.mist {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: 0.22;
+    pointer-events: none;
+    animation: mistFloat 14s ease-in-out infinite alternate;
+}
+
+.mist-one {
+    width: 350px;
+    height: 250px;
+    background: #547d6c;
+    left: -100px;
+    bottom: 5%;
+}
+
+.mist-two {
+    width: 400px;
+    height: 300px;
+    background: #345b64;
+    right: -130px;
+    top: 25%;
+    animation-delay: -5s;
+}
+
+.mist-three {
+    width: 300px;
+    height: 250px;
+    background: #8d805c;
+    left: 40%;
+    bottom: -160px;
+    animation-delay: -8s;
+}
+
+@keyframes mistFloat {
+    from {
+        transform: translate(0, 0);
+    }
+
+    to {
+        transform: translate(35px, -25px);
+    }
+}
+
+/* =========================================
+   SCREEN STRUCTURE
+========================================= */
+
+.website {
+    position: relative;
+    z-index: 2;
+    min-height: 100vh;
+}
+
+.screen {
+    display: none;
+    min-height: 100vh;
+    width: 100%;
+    padding: 55px 22px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: transparent;
+}
+
+.screen.active {
+    display: flex;
+    animation: screenReveal 0.8s ease;
+}
+
+@keyframes screenReveal {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.content {
+    width: 100%;
+    max-width: 700px;
+    margin: auto;
+}
+
+/* =========================================
+   COMMON ELEMENTS
+========================================= */
+
+.bismillah {
+    color: var(--gold);
+    font-size: 23px;
+    margin-bottom: 30px;
+}
+
+.eyebrow {
+    color: var(--gold);
+    font-size: 10px;
+    letter-spacing: 4px;
+    font-weight: 500;
+    margin-bottom: 25px;
+}
+
+.ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin: 27px auto;
+}
+
+.ornament span {
+    width: 48px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--muted-gold));
+}
+
+.ornament span:last-child {
+    background: linear-gradient(to left, transparent, var(--muted-gold));
+}
+
+.ornament i {
+    color: var(--gold);
+    font-size: 12px;
+    font-style: normal;
+}
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.main-button {
+    border: 1px solid rgba(185, 164, 125, 0.65);
+    color: var(--cream);
+    background: transparent;
+    padding: 14px 25px;
+    font-family: "DM Sans", sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.35s ease;
+}
+
+.main-button span {
+    color: var(--gold);
+    margin-left: 9px;
+}
+
+.main-button:hover {
+    background: rgba(185, 164, 125, 0.12);
+    border-color: var(--cream);
+    transform: translateY(-3px);
+}
+
+/* =========================================
+   OPENING SCREEN
+========================================= */
+
+.opening-content h1 {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 400;
+    font-size: clamp(52px, 9vw, 82px);
+    line-height: 0.95;
+    letter-spacing: -1.5px;
+    color: var(--cream);
+}
+
+.subtitle {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 22px;
+    font-style: italic;
+    color: var(--soft-cream);
+    margin-top: 22px;
+}
+
+/* ENVELOPE */
+
+.envelope {
+    position: relative;
+    width: 170px;
+    height: 112px;
+    margin: 55px auto 25px;
+    perspective: 700px;
+}
+
+.envelope-back {
+    position: absolute;
+    inset: 0;
+    background: #b5a27f;
+    border-radius: 3px;
+}
+
+.envelope-letter {
+    position: absolute;
+    width: 145px;
+    height: 90px;
+    background: #eee6d5;
+    left: 12px;
+    bottom: 8px;
+    transition: transform 0.8s ease;
+}
+
+.envelope-front {
+    position: absolute;
+    inset: 0;
+    background: #8c8064;
+    clip-path: polygon(0 0, 50% 58%, 100% 0, 100% 100%, 0 100%);
+}
+
+.envelope-flap {
+    position: absolute;
+    inset: 0;
+    background: #c0ae8a;
+    clip-path: polygon(0 0, 100% 0, 50% 60%);
+    transform-origin: top;
+    transition: transform 0.7s ease;
+    z-index: 3;
+}
+
+.envelope-seal {
+    position: absolute;
+    z-index: 4;
+    left: 50%;
+    top: 48%;
+    transform: translate(-50%, -50%);
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #66583e;
+    color: #e6d5ae;
+    font-size: 13px;
+    display: grid;
+    place-items: center;
+}
+
+.envelope.open .envelope-flap {
+    transform: rotateX(180deg);
+}
+
+.envelope.open .envelope-letter {
+    transform: translateY(-55px);
+}
+
+.opening-note {
+    color: #bcb8a9;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    margin-bottom: 25px;
+}
+
+/* =========================================
+   LETTER SCREEN
+========================================= */
+
+.letter-content {
+    max-width: 650px;
+}
+
+.letter-content h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(42px, 7vw, 61px);
+    font-weight: 400;
+    line-height: 1.02;
+    color: var(--cream);
+}
+
+.letter-body {
+    max-width: 540px;
+    margin: 35px auto 0;
+}
+
+.letter-body p {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 21px;
+    line-height: 1.65;
+    color: #ded9cb;
+    margin-bottom: 23px;
+}
+
+.letter-ending {
+    font-family: "Great Vibes", cursive;
+    font-size: 36px;
+    color: var(--gold);
+    margin: 28px 0;
+}
+
+/* =========================================
+   DAYS COUNTER
+========================================= */
+
+.time-content {
+    max-width: 650px;
+}
+
+.timer-message {
+    margin: 35px auto 42px;
+}
+
+.timer-message h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(34px, 6vw, 49px);
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--cream);
+}
+
+.timer-message p {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(22px, 4vw, 28px);
+    font-style: italic;
+    color: var(--soft-cream);
+    margin-top: 12px;
+}
+
+.timer-container {
+    width: 100%;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    text-align: center;
+    gap: 12px;
+    margin: 35px auto;
+}
+
+.timer-number {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(75px, 14vw, 112px);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 1px;
+    color: #f0e6d2;
+    font-variant-numeric: tabular-nums;
+    text-shadow: 0 0 35px rgba(211, 190, 145, 0.12);
+}
+
+.timer-label {
+    font-family: "DM Sans", sans-serif;
+    font-size: 13px;
+    letter-spacing: 5px;
+    color: var(--gold);
+}
+
+.time-note {
+    max-width: 440px;
+    margin: 35px auto;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 21px;
+    line-height: 1.55;
+    font-style: italic;
+    color: #d9d0bd;
+}
+
+/* =========================================
+   COLLECTION SCREEN
+========================================= */
+
+.collection-content {
+    max-width: 650px;
+    padding: 35px 0;
+}
+
+.collection-title {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(43px, 7vw, 62px);
+    line-height: 1.05;
+    font-weight: 400;
+    color: var(--cream);
+}
+
+.collection-intro {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 20px;
+    font-style: italic;
+    color: var(--soft-cream);
+    margin: 25px auto 35px;
+    max-width: 420px;
+    line-height: 1.5;
+}
+
+.chapter-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.chapter-card {
+    width: 100%;
+    min-height: 88px;
+    display: flex;
+    align-items: center;
+    text-align: left;
+    gap: 18px;
+    padding: 17px 18px;
+    border: 1px solid rgba(185, 164, 125, 0.25);
+    background: rgba(7, 27, 25, 0.18);
+    color: var(--cream);
+    cursor: pointer;
+    transition: all 0.35s ease;
+    font-family: "DM Sans", sans-serif;
+}
+
+.chapter-card:hover {
+    background: rgba(185, 164, 125, 0.09);
+    border-color: rgba(185, 164, 125, 0.65);
+    transform: translateX(5px);
+}
+
+.chapter-number {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 25px;
+    color: var(--gold);
+    min-width: 28px;
+}
+
+.chapter-details {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex: 1;
+}
+
+.chapter-name {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 23px;
+    color: var(--cream);
+}
+
+.chapter-description {
+    font-size: 11px;
+    line-height: 1.5;
+    color: #b9b9a9;
+    letter-spacing: 0.2px;
+}
+
+.chapter-arrow {
+    color: var(--gold);
+    font-size: 18px;
+    transition: transform 0.3s ease;
+}
+
+.chapter-card:hover .chapter-arrow {
+    transform: translate(3px, -3px);
+}
+
+.collection-caption {
+    margin-top: 42px;
+    color: var(--gold);
+    font-size: 9px;
+    letter-spacing: 4px;
+}
+
+/* =========================================
+   FOR YOUR HEART - BOTH PAGES
+========================================= */
+
+.dua-content {
+    max-width: 720px;
+    padding: 35px 0 25px;
+}
+
+.dua-page-title {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(45px, 7vw, 66px);
+    font-weight: 400;
+    line-height: 1.05;
+    color: var(--cream);
+}
+
+.dua-page-subtitle {
+    max-width: 470px;
+    margin: 17px auto 0;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 21px;
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--soft-cream);
+}
+
+/* PRAYER LIST */
+
+.prayer-list {
+    width: 100%;
+    max-width: 650px;
+    margin: 35px auto 0;
+    text-align: left;
+}
+
+.prayer-item {
+    position: relative;
+    padding: 20px 12px 23px;
+    border-bottom: 1px solid rgba(185, 164, 125, 0.19);
+}
+
+.prayer-item:first-child {
+    border-top: 1px solid rgba(185, 164, 125, 0.19);
+}
+
+.prayer-number {
+    font-family: "DM Sans", sans-serif;
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: var(--gold);
+    margin-bottom: 7px;
+}
+
+.prayer-item h3 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 25px;
+    line-height: 1.2;
+    font-weight: 500;
+    color: var(--cream);
+    margin-bottom: 7px;
+}
+
+.prayer-text {
+    max-width: 600px;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 19px;
+    line-height: 1.5;
+    color: #d9d4c6;
+}
+
+/* PAGE NAVIGATION */
+
+.dua-navigation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 17px;
+    margin: 35px auto 10px;
+}
+
+.page-indicator {
+    color: var(--gold);
+    font-size: 9px;
+    letter-spacing: 4px;
+}
+
+/* CHAPTER CLOSING */
+
+.chapter-ending {
+    max-width: 500px;
+    margin: 35px auto 10px;
+}
+
+.chapter-ending h3 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 31px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: var(--cream);
+}
+
+.chapter-ending p {
+    max-width: 390px;
+    margin: 12px auto 0;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 20px;
+    line-height: 1.5;
+    font-style: italic;
+    color: var(--soft-cream);
+}
+
+/* =========================================
+   MOBILE RESPONSIVE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .screen {
+        padding: 42px 22px;
+    }
+
+    .bismillah {
+        font-size: 20px;
+    }
+
+    .opening-content h1 {
+        font-size: 58px;
+    }
+
+    .subtitle {
+        font-size: 20px;
+    }
+
+    .letter-content h2 {
+        font-size: 46px;
+    }
+
+    .letter-body p {
+        font-size: 19px;
+        line-height: 1.55;
+    }
+
+    .timer-message {
+        margin: 25px auto 40px;
+    }
+
+    .timer-number {
+        font-size: 82px;
+    }
+
+    .timer-label {
+        font-size: 11px;
+        letter-spacing: 4px;
+    }
+
+    .timer-container {
+        gap: 10px;
+    }
+
+    .time-note {
+        font-size: 19px;
+    }
+
+    .collection-content {
+        padding: 25px 0;
+    }
+
+    .chapter-card {
+        min-height: 82px;
+        padding: 14px;
+        gap: 13px;
+    }
+
+    .chapter-name {
+        font-size: 21px;
+    }
+
+    .chapter-description {
+        font-size: 10px;
+    }
+
+    .chapter-number {
+        font-size: 22px;
+    }
+
+    .collection-caption {
+        margin-top: 38px;
+    }
+
+    /* HEART CHAPTER MOBILE */
+
+    .dua-content {
+        padding: 22px 0;
+    }
+
+    .dua-page-title {
+        font-size: 49px;
+    }
+
+    .dua-page-subtitle {
+        font-size: 19px;
+        max-width: 330px;
+    }
+
+    .prayer-list {
+        margin-top: 27px;
+    }
+
+    .prayer-item {
+        padding: 17px 5px 19px;
+    }
+
+    .prayer-item h3 {
+        font-size: 23px;
+    }
+
+    .prayer-text {
+        font-size: 18px;
+        line-height: 1.48;
+    }
+
+    .chapter-ending h3 {
+        font-size: 28px;
+    }
+
+    .chapter-ending p {
+        font-size: 19px;
+    }
+
+    .dua-navigation {
+        margin-top: 30px;
+    }
+
+    .dua-navigation .main-button {
+        max-width: 100%;
+        padding: 14px 17px;
+        font-size: 9px;
+        letter-spacing: 1.5px;
+    }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+
+}
+/* FINAL THOUGHT PAGE */
+
+.final-thought-content {
+    max-width: 600px;
+    margin: 55px auto;
+    text-align: center;
+}
+
+.final-thought-content h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.final-thought-content p {
+    font-family: 'DM Sans', sans-serif;
+    line-height: 1.9;
+    margin: 25px 0;
+}
+
+.final-thought-content .final-blessing {
+    margin-top: 65px;
+    font-size: 2rem;
+}
+
+.final-signature {
+    letter-spacing: 3px;
+    font-size: 0.75rem;
+}
+
+
+/* =========================================
+   CSS-ONLY ISLAMIC GARDEN BACKGROUND
+   No image file is required.
+========================================= */
+
+body {
+    position: relative;
+    isolation: isolate;
+    background:
+        radial-gradient(ellipse at 50% 7%, rgba(190, 166, 105, 0.16), transparent 28%),
+        radial-gradient(ellipse at 8% 45%, rgba(46, 111, 88, 0.24), transparent 38%),
+        radial-gradient(ellipse at 92% 48%, rgba(39, 91, 91, 0.22), transparent 38%),
+        radial-gradient(ellipse at 50% 100%, rgba(13, 53, 43, 0.58), transparent 55%),
+        linear-gradient(145deg, #041512 0%, #0b2923 48%, #06191b 100%);
+    background-attachment: fixed;
+}
+
+/* Delicate geometric light pattern and distant arch silhouettes */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.42;
+    background:
+        radial-gradient(ellipse 34% 58% at 50% 108%,
+            transparent 68%,
+            rgba(190, 164, 112, 0.12) 68.3%,
+            transparent 69.1%),
+        radial-gradient(ellipse 23% 45% at 50% 108%,
+            transparent 68%,
+            rgba(190, 164, 112, 0.10) 68.4%,
+            transparent 69.2%),
+        radial-gradient(ellipse 15% 31% at 50% 108%,
+            transparent 68%,
+            rgba(190, 164, 112, 0.08) 68.5%,
+            transparent 69.3%),
+        radial-gradient(circle at 12% 20%, rgba(222, 187, 112, 0.12) 0 1px, transparent 2px),
+        radial-gradient(circle at 88% 25%, rgba(222, 187, 112, 0.11) 0 1px, transparent 2px),
+        radial-gradient(circle at 22% 72%, rgba(222, 187, 112, 0.10) 0 1px, transparent 2px),
+        radial-gradient(circle at 79% 68%, rgba(222, 187, 112, 0.10) 0 1px, transparent 2px);
+}
+
+/* Soft moonlit glow, with subtle hanging-lantern silhouettes */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.8;
+    background:
+        /* left lantern glow */
+        radial-gradient(ellipse 90px 120px at 10% 17%, rgba(210, 167, 91, 0.12), transparent 72%),
+        /* right lantern glow */
+        radial-gradient(ellipse 90px 120px at 90% 17%, rgba(210, 167, 91, 0.12), transparent 72%),
+        /* crescent-like moonlight */
+        radial-gradient(circle at 82% 13%, rgba(221, 199, 145, 0.16) 0 25px, transparent 26px),
+        radial-gradient(circle at 87% 10%, #09231f 0 23px, transparent 24px);
+}
+
+/* Keep the original mist and glow softly behind all website content */
+.ambient-glow,
+.mist {
+    z-index: 0;
+}
+
+/* Add fine gold outlines at the page edges without covering text */
+.website::before,
+.website::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: min(13vw, 150px);
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.28;
+    background:
+        repeating-linear-gradient(
+            135deg,
+            transparent 0 22px,
+            rgba(190, 164, 112, 0.10) 23px,
+            transparent 24px 44px
+        );
+    mask-image: linear-gradient(to bottom, transparent, black 16%, black 84%, transparent);
+}
+
+.website::before {
+    left: 0;
+    border-right: 1px solid rgba(190, 164, 112, 0.13);
+}
+
+.website::after {
+    right: 0;
+    border-left: 1px solid rgba(190, 164, 112, 0.13);
+}
+
+/* Preserve the transparent screens and content panels */
+.screen,
+.content,
+.dua-content {
+    background: transparent;
+}
+
+@media (max-width: 768px) {
+    body {
+        background-attachment: scroll;
+    }
+
+    body::before {
+        opacity: 0.28;
+    }
+
+    body::after {
+        opacity: 0.55;
+    }
+
+    .website::before,
+    .website::after {
+        width: 22px;
+        opacity: 0.16;
+    }
+}
